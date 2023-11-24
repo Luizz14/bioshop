@@ -8,13 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        frank: ['Frank Ruhl Libre', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+      },
+      colors: {
+        pear: {
+          50: '#fbf6f1',
+          100: '#f2e3d5',
+          200: '#ead2be',
+          300: '#ddb394',
+          400: '#ce8d69',
+          500: '#c3724c',
+          600: '#b65f40',
+          700: '#974a37',
+          800: '#7a3e32',
+          900: '#63342b',
+          950: '#351915',
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio'), require('flowbite/plugin')],
 }
 export default config
