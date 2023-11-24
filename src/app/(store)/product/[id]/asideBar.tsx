@@ -2,7 +2,6 @@
 import Button from '@components/button'
 import { addToCart } from '@src/storage/productStorage'
 import Link from 'next/link'
-import BtnAddCart from './btn-add-cart'
 
 interface AsideBarProps {
   price: number
@@ -10,6 +9,10 @@ interface AsideBarProps {
 }
 
 export function AsideBar({ price, productId }: AsideBarProps) {
+  async function handleAddToCart() {
+    await addToCart(productId, 1)
+  }
+
   return (
     <aside className='w-full h-auto p-4 rounded-lg lg:max-w-xs shadow-xl bg-white-200 border-2 border-pear-700'>
       <h1 className='text-xl text-pear-400'>Valor</h1>
@@ -53,7 +56,7 @@ export function AsideBar({ price, productId }: AsideBarProps) {
       </section>
 
       <div className='space-y-4 mt-4'>
-        <BtnAddCart productId={productId} />
+        <Button title='Comprar agora!' />
         <Button title='Adicionar ao carrinho' buttonType='clean' />
 
         {/* <button className='bg-pear-400 rounded-lg py-3 w-full font-bold text-xl text-pear-950'>
